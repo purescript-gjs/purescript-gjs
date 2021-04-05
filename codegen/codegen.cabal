@@ -1,0 +1,25 @@
+cabal-version:       >=1.10
+name:                codegen
+version:             0.1.0.0
+author:              Tristan de Cacqueray
+maintainer:          tdecacqu@redhat.com
+build-type:          Simple
+extra-source-files:  README.md
+
+executable codegen
+  main-is:           PureGirGen.hs
+  ghc-options:       -Wall
+                     -Wcompat
+                     -Widentities
+                     -Wincomplete-record-updates
+                     -Wincomplete-uni-patterns
+                     -Wmissing-export-lists
+                     -Wpartial-fields
+                     -Wredundant-constraints
+                     -Wunused-packages
+                     -fhide-source-paths
+  build-depends:     base >=4.14 && <4.15
+                   , relude >= 1.0.0.0 && <1.1.0.0
+                   , mtl
+                   , haskell-gi
+  default-language:  Haskell2010
