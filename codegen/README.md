@@ -1,9 +1,14 @@
 # purescript-gir codegen
 
-A script to generate purescript ffi.
+WIP script to generate purescript ffi.
 
 ## Usage
 
 ```shell
 cabal run pure-gir-codegen
 ```
+
+## TODO
+
+- multiple argument functions
+- no-effect binding
