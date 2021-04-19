@@ -12,3 +12,4 @@ Run `make test`.
 - https://gjs.guide/extensions/development/creating.html
 - https://gjs-docs.gnome.org/
 - https://developer.gnome.org/glib/stable/gvariant-format-strings.html
+- https://gjs-tutorial.readthedocs.io/en/latest/introduction.html

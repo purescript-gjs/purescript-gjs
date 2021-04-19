@@ -24,6 +24,7 @@ lineJs l = tell ([], [l])
 psBType :: GIR.BasicType -> Text
 psBType GIR.TBoolean = "Boolean"
 psBType GIR.TUTF8 = "String"
+psBType GIR.TFloat = "Number"
 psBType GIR.TDouble = "Number"
 psBType GIR.TUInt = "Int"
 psBType GIR.TUInt8 = "Int"
@@ -41,6 +42,7 @@ psType :: GIR.Type -> Text
 psType (GIR.TBasicType bt) = psBType bt
 psType GIR.TVariant = "Variant"
 psType (GIR.TCArray _ _ _ n) = maybeAddParen "Array" (psType n)
+psType (GIR.TInterface (Name "Gtk" n)) = n
 psType (GIR.TInterface n) = "(interface " <> show n <> "?)"
 psType GIR.TError = "error?"
 psType x = error $ "Unknown type: " <> show x
@@ -126,14 +128,19 @@ genStruct gi name obj = do
       genModuleHeader name obj
       genForeignType name obj
       sequence_ (mapMaybe (genMethod obj) (structMethods s))
-    _ -> error "Can't find"
+    Just (APIObject s) -> do
+      genBindingHeader name obj
+      genModuleHeader name obj
+      genForeignType name obj
+      sequence_ (mapMaybe (genMethod obj) (objMethods s))
+    x -> error ("Can't find: " <> show (Name name obj) <> ": " <> show x)
 
 genModule :: MonadIO m => GIRInfo -> Text -> Text -> m ()
 genModule gi name obj = do
   writeSrc "purs" pureSrc
   writeSrc "js" jsSrc
   where
-    (pureSrc, jsSrc) = execWriter (genStruct gi "GLib" "Variant")
+    (pureSrc, jsSrc) = execWriter (genStruct gi name obj)
     writeSrc ext xs =
       writeFile
         (T.unpack $ "../src/" <> name <> "/" <> obj <> "." <> ext)
@@ -143,4 +150,6 @@ main :: IO ()
 main = do
   (gi, _) <- loadGIRInfo True "GLib" Nothing [] []
   genModule gi "GLib" "Variant"
+  -- (giGtk, _) <- loadGIRInfo True "Gtk" Nothing [] []
+  -- genModule giGtk "Gtk" "Label"
   putStrLn "Done."
