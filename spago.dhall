@@ -1,4 +1,4 @@
-{ name = "purescript-gir"
+{ name = "gir"
 , dependencies =
   [ "console"
   , "effect"
