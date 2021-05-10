@@ -1,17 +1,29 @@
-module Gio.Settings (Instance, new, apply, has_unapplied, path, set_value) where
+module Gio.Settings where
 
 import Effect (Effect)
 import Prelude (Unit)
 import GLib.Variant (Variant)
+import GObject (class GObject)
+import Gio.SettingsSchema (SettingsSchema)
 
-foreign import data Instance :: Type
+instance obj :: GObject Settings
 
-foreign import new :: String -> Effect Instance
+foreign import data Settings :: Type
 
-foreign import apply :: Instance -> Effect Unit
+foreign import new :: String -> Effect Settings
 
-foreign import has_unapplied :: Instance -> Boolean
+foreign import new_full :: SettingsSchema -> Effect Settings
 
-foreign import path :: Instance -> String
+foreign import apply :: Settings -> Effect Unit
 
-foreign import set_value :: Instance -> String -> Variant -> Effect Boolean
+foreign import has_unapplied :: Settings -> Effect Boolean
+
+foreign import is_writable :: Settings -> String -> Effect Boolean
+
+foreign import path :: Settings -> String
+
+foreign import set_value :: Settings -> String -> Variant -> Effect Boolean
+
+foreign import set_int :: Settings -> String -> Number -> Effect Boolean
+
+foreign import get_int :: Settings -> String -> Effect Number

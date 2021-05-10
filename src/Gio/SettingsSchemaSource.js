@@ -2,6 +2,10 @@
 
 const Gio = imports.gi.Gio;
 
+exports.new_from_directory = path => trusted => () => Gio.SettingsSchemaSource.new_from_directory(path, null, trusted)
+
+exports.lookup = s => name => recursive => () => s.lookup(name, recursive)
+
 exports.get_defaultImpl = just => nothing => () => {
     const res = Gio.SettingsSchemaSource.get_default();
     if (res) {

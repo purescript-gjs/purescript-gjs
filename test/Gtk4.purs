@@ -43,7 +43,7 @@ main = do
 
   app <- Application.new "test.gtk4"
   GJS.log "starting app"
-  GObject.signal_connect_closure app "activate" (activate loop)
+  _ <- GObject.signal_connect_closure app "activate" (activate loop)
   Application.run app
   GJS.log "looping"
   GLib.MainLoop.run loop
@@ -55,12 +55,12 @@ main = do
       GJS.log "activating"
       win <- Window.new
       Window.set_title win "Test GTK4"
-      GObject.signal_connect_closure win "close-request" (destroy loop)
+      _ <- GObject.signal_connect_closure win "close-request" (destroy loop)
 
       label <- Label.new "A label"
 
       button <- Button.new_with_label "Click me!"
-      GObject.signal_connect_closure button "clicked" onClick
+      _ <- GObject.signal_connect_closure button "clicked" onClick
 
       da <- DrawingArea.new
       DrawingArea.set_draw_func da onDraw

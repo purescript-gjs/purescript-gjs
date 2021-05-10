@@ -13,6 +13,11 @@ foreign import unsafe_show :: forall widget. widget -> Effect Unit
 show :: forall widget. Widget widget => widget -> Effect Unit
 show = unsafe_show
 
+foreign import unsafe_queue_draw :: forall widget. widget -> Effect Unit
+
+queue_draw :: forall widget. Widget widget => widget -> Effect Unit
+queue_draw = unsafe_queue_draw
+
 foreign import unsafe_set_size_request :: forall widget. widget -> Int -> Int -> Effect Unit
 
 set_size_request :: forall a. Widget a => a -> Int -> Int -> Effect Unit
