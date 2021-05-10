@@ -14,3 +14,7 @@ Run `make test`.
 - https://developer.gnome.org/glib/stable/gvariant-format-strings.html
 - https://gjs-tutorial.readthedocs.io/en/latest/introduction.html
 - https://gitlab.com/justperfection.channel/how-to-create-a-gnome-shell-extension
+
+- https://gjs-docs.gnome.org/glib20~2.66.1/glib.mainloop
+- https://gjs-docs.gnome.org/gobject20~2.66p/gobject.signal_connect_closure
+- https://gjs-docs.gnome.org/gtk40~4.0.3/gtk.drawingarea
