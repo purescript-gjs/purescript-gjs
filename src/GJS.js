@@ -1,5 +1,6 @@
 "use strict";
 
+exports.argv = ARGV
 exports.log = msg => () => log(msg)
 exports.print = msg => () => print(msg)
 exports.printerr = msg => () => printerr(msg)

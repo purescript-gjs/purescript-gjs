@@ -1,10 +1,13 @@
 module Test.Main where
 
 import Prelude
-import GJS as GJS
-import GLib.Variant as GLib
+
+import Data.Array (length)
 import Effect (Effect)
 import Effect.Exception (error)
+import System as System
+import GJS as GJS
+import GLib.Variant as GLib
 
 assertEqual' :: forall a. Eq a => Show a => String -> { actual :: a, expected :: a } -> Effect Unit
 assertEqual' msg { actual, expected } =
@@ -26,7 +29,13 @@ testGJS = do
   GJS.logError (error "test error message") "logError: "
   GJS.log "log: test completed 🍝"
 
+testArgv = do
+  GJS.log $ "prog: " <> System.programInvocationName
+  GJS.log $ "argv: " <> show GJS.argv
+  GJS.log $ "length: " <> show (length GJS.argv)
+
 main :: Effect Unit
 main = do
   testGLibVariant
   testGJS
+  testArgv

@@ -5,6 +5,7 @@
   , "exceptions"
   , "maybe"
   , "lists"
+  , "arrays"
   , "foldable-traversable"
   , "psci-support"
   , "integers"

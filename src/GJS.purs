@@ -11,3 +11,5 @@ foreign import print :: String -> Effect Unit
 foreign import printerr :: String -> Effect Unit
 
 foreign import logError :: Error -> String -> Effect Unit
+
+foreign import argv :: Array String
