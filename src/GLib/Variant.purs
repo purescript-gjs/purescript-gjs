@@ -177,3 +177,5 @@ foreign import is_object_path :: String -> Effect Boolean
 -- | Determines if a given string is a valid D-Bus type signature.  You
 -- Returns %TRUE if @string is a D-Bus type signature
 foreign import is_signature :: String -> Effect Boolean
+
+foreign import get_child_value :: Variant -> Int -> Effect Variant

@@ -20,3 +20,4 @@ Run `make test`.
 - https://gjs-docs.gnome.org/gobject20~2.66p/gobject.signal_connect_closure
 - https://gjs-docs.gnome.org/gtk40~4.0.3/gtk.drawingarea
 - https://gjs-docs.gnome.org/gio20~2.66p/gio.settings
+- https://www.andyholmes.ca/articles/dbus-in-gjs.html
