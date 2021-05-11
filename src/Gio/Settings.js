@@ -12,3 +12,5 @@ exports.set_value = instance => key => value => () => instance.set_value(key, va
 
 exports.get_int = instance => key => () => instance.get_int(key)
 exports.set_int = instance => key => value => () => instance.set_int(key, value)
+exports.get_double = instance => key => () => instance.get_double(key)
+exports.set_double = instance => key => value => () => instance.set_double(key, value)

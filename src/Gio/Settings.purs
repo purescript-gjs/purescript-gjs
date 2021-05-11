@@ -24,6 +24,10 @@ foreign import path :: Settings -> String
 
 foreign import set_value :: Settings -> String -> Variant -> Effect Boolean
 
-foreign import set_int :: Settings -> String -> Number -> Effect Boolean
+foreign import set_int :: Settings -> String -> Int -> Effect Boolean
 
-foreign import get_int :: Settings -> String -> Effect Number
+foreign import get_int :: Settings -> String -> Effect Int
+
+foreign import set_double :: Settings -> String -> Number -> Effect Boolean
+
+foreign import get_double :: Settings -> String -> Effect Number
