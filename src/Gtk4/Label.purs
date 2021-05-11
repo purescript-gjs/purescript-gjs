@@ -1,6 +1,5 @@
 module Gtk4.Label where
 
-import Prelude (Unit)
 import Effect (Effect)
 import GObject (class GObject)
 import Gtk4 (class Widget)

@@ -5,7 +5,6 @@ import Effect (Effect)
 import GObject (class GObject)
 import Gtk4 (class Widget)
 import Gtk4.Orientation
-import Gtk4.Application (Application)
 
 instance obj :: GObject Box
 instance widget :: Widget Box

@@ -18,3 +18,7 @@ foreign import new_with_range :: Orientation -> Number -> Number -> Number -> Ef
 foreign import set_draw_value :: Scale -> Boolean -> Effect Unit
 
 foreign import set_format_value_func :: Scale -> (Number -> String) -> Effect Unit
+
+-- Call this on destroy to prevent this exception: Attempting to run a JS callback during garbage collection.
+-- It seems like there is a bug in the set_format_value_func disposal logic
+foreign import unset_format_value_func :: Scale -> Effect Unit

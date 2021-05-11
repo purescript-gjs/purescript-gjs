@@ -10,3 +10,8 @@ foreign import unsafe_signal_connect_closure :: forall obj. obj -> String -> Eff
 
 signal_connect_closure :: forall obj. GObject obj => obj -> String -> Effect Unit -> Effect Int
 signal_connect_closure = unsafe_signal_connect_closure
+
+foreign import unsafe_run_dispose :: forall obj. obj -> Effect Unit
+
+run_dispose :: forall obj. GObject obj => obj -> Effect Unit
+run_dispose = unsafe_run_dispose
