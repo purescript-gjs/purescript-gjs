@@ -7,14 +7,30 @@ import Gtk4 (class Widget)
 
 instance obj :: GObject Window
 instance widget :: Widget Window
+instance window :: WindowClass Window
+
+class WindowClass :: forall k. k -> Constraint
+class WindowClass a
 
 foreign import data Window :: Type
 
 foreign import new :: Effect Window
 
-foreign import set_title :: Window -> String -> Effect Unit
+foreign import unsafe_set_title :: forall window. window -> String -> Effect Unit
 
-foreign import close :: Window -> Effect Unit
+set_title :: forall window. WindowClass window => window -> String -> Effect Unit
+set_title = unsafe_set_title
+
+foreign import unsafe_close :: forall window. window -> Effect Unit
+
+close :: forall window. WindowClass window => window -> Effect Unit
+close = unsafe_close
+
+foreign import unsafe_set_modal :: forall window. window -> Boolean -> Effect Unit
+
+set_modal :: forall window. WindowClass window => window -> Boolean -> Effect Unit
+set_modal = unsafe_set_modal
+
 
 foreign import destroy :: Window -> Effect Unit
 

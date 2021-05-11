@@ -14,13 +14,27 @@ import Gtk4.Application as Application
 import Gtk4.DrawingArea as DrawingArea
 import Gtk4.Box as Box
 import Gtk4.Button as Button
+import Gtk4.Dialog as Dialog
 import Gtk4.Scale as Scale
 import Gtk4.Label as Label
 import Gtk4.Orientation as Orientation
 import Gtk4.Window as Window
 
 onClick :: Effect Unit
-onClick = GJS.log "Clicked!"
+onClick = do
+  GJS.log "Clicked!"
+  diag <- Dialog.new
+  diagContent <- Dialog.get_content_area diag
+  label <- Label.new "Time for a break"
+  Box.append diagContent label
+  Dialog.add_button diag "ok" 1
+  Dialog.add_button diag "snooze" 2
+  Dialog.onResponse diag
+    ( \resp -> do
+        unless (resp < 1) (GJS.log $ "dialog response: " <> show resp)
+        Window.close diag
+    )
+  Gtk4.show diag
 
 onDraw :: Cairo.Context -> Effect Unit
 onDraw cr = do
