@@ -3,15 +3,15 @@ module St where
 import Prelude (Unit)
 import Effect (Effect)
 
-foreign import data Widget :: Type -> Type
-foreign import data Icon :: Type
-foreign import data Label :: Type
+class Widget :: forall k. k -> Constraint
+class Widget a
 
+foreign import unsafe_add_style_class_name :: forall widget. widget -> String -> Effect Unit
 
-foreign import newIcon :: String -> String -> Effect (Widget Icon)
+add_style_class_name :: forall a. Widget a => a -> String -> Effect Unit
+add_style_class_name = unsafe_add_style_class_name
 
-foreign import newLabel :: String -> Effect (Widget Label)
+foreign import unsafe_remove_style_class_name :: forall widget. widget -> String -> Effect Unit
 
-foreign import addChild :: forall a b. Widget a -> Widget b -> Effect Unit
-
-foreign import destroy :: forall a. Widget a -> Effect Unit
+remove_style_class_name :: forall a. Widget a => a -> String -> Effect Unit
+remove_style_class_name = unsafe_remove_style_class_name

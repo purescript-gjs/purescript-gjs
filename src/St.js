@@ -1,18 +1,7 @@
 "use strict";
 
-try { const St = imports.gi.St; } catch(err) {}
+let St;
+try { St = imports.gi.St; } catch(_) {}
 
-const Gio = imports.gi.Gio;
-
-exports.newIcon = name => styleClass => () =>
-  new St.Icon({
-      gicon: new Gio.ThemedIcon({name: name}),
-      style_class: styleClass
-  })
-
-exports.newLabel = text => () =>
-  new St.Label({text: text})
-
-exports.destroy = widget => () => widget.destroy()
-
-exports.addChild = parent => child => () => parent.add_child(child)
+exports.unsafe_add_style_class_name = widget => name => () => widget.add_style_class_name(name)
+exports.unsafe_remove_style_class_name = widget => name => () => widget.remove_style_class_name(name)

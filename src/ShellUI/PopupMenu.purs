@@ -2,10 +2,16 @@ module ShellUI.PopupMenu where
 
 import Prelude (Unit)
 import Effect (Effect)
-import St as St
+import GObject (class GObject)
+import Gtk4 (class Widget)
+import Clutter.Actor (class Actor)
 
 foreign import data PopupMenuItem :: Type
 
-foreign import newItem ::  String -> Effect (St.Widget PopupMenuItem)
+instance obj :: GObject PopupMenuItem
+instance widget :: Widget PopupMenuItem
+instance actor :: Actor PopupMenuItem
 
-foreign import connectActivate :: St.Widget PopupMenuItem -> Effect Unit -> Effect Unit
+foreign import newItem ::  String -> Effect PopupMenuItem
+
+foreign import connectActivate :: PopupMenuItem -> Effect Unit -> Effect Unit
