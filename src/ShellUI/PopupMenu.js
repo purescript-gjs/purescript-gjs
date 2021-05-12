@@ -1,6 +1,7 @@
 "use strict";
 
-const PopupMenu = imports.ui.popupMenu;
+let PopupMenu;
+try { PopupMenu = imports.ui.popupMenu; } catch(_) {}
 
 exports.newItem = name => () =>
   new PopupMenu.PopupMenuItem(name);

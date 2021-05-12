@@ -1,6 +1,7 @@
 "use strict";
 
-const St = imports.gi.St;
+try { const St = imports.gi.St; } catch(err) {}
+
 const Gio = imports.gi.Gio;
 
 exports.newIcon = name => styleClass => () =>

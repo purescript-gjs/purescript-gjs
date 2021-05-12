@@ -1,5 +1,6 @@
 "use strict";
 
-const Main = imports.ui.main;
+let Main;
+try { Main = imports.ui.main; } catch (_) {}
 
 exports.addToStatusArea = role => indicator => () => Main.panel.addToStatusArea(role, indicator)

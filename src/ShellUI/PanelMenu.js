@@ -1,6 +1,7 @@
 "use strict";
 
-const PanelMenu = imports.ui.panelMenu;
+let PanelMenu;
+try { PanelMenu = imports.ui.panelMenu; } catch (_) {}
 
 exports.newButton = (alignment) => (name) => (dontCreateMenu) => () =>
   new PanelMenu.Button(alignment, name, dontCreateMenu);
