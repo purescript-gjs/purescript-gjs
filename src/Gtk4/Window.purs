@@ -31,6 +31,10 @@ foreign import unsafe_set_modal :: forall window. window -> Boolean -> Effect Un
 set_modal :: forall window. WindowClass window => window -> Boolean -> Effect Unit
 set_modal = unsafe_set_modal
 
+foreign import unsafe_set_decorated :: forall window. window -> Boolean -> Effect Unit
+
+set_decorated :: forall window. WindowClass window => window -> Boolean -> Effect Unit
+set_decorated = unsafe_set_decorated
 
 foreign import destroy :: Window -> Effect Unit
 
