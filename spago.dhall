@@ -1,4 +1,4 @@
-{ name = "gir"
+{ name = "gjs"
 , dependencies =
   [ "console"
   , "effect"

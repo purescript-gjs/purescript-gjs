@@ -1,4 +1,4 @@
-# purescript-gir codegen
+# purescript-gjs codegen
 
 WIP script to generate purescript ffi.
 
@@ -12,3 +12,4 @@ cabal run pure-gir-codegen
 
 - multiple argument functions
 - no-effect binding
+- typeclass for inheritance
