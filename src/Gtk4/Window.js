@@ -1,5 +1,6 @@
 "use strict";
 
+imports.gi.versions.Gtk = "4.0";
 const Gtk4 = imports.gi.Gtk;
 
 exports.new = () => Gtk4.Window.new()

@@ -3,7 +3,7 @@
 imports.gi.versions.Gtk = "4.0";
 const Gtk4 = imports.gi.Gtk;
 
-exports.init = () => Gtk4.init()
+exports.init = () => Gtk4.init(null)
 
 exports.unsafe_show = (widget) => () => widget.show()
 
