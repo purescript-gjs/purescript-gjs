@@ -9,6 +9,7 @@ import GLib.VariantType (VariantType)
 import Gio.AsyncResult (AsyncResult)
 import Gio.DBusSignalFlags (DBusSignalFlags)
 import Gio.DBusCallFlags (DBusCallFlags)
+import Gio.Cancellable (Cancellable)
 
 foreign import data DBusConnection :: Type
 
@@ -29,10 +30,6 @@ type DBusSignalCallback
     -- | value
     Variant ->
     Effect Unit
-
--- TODO
-type Cancellable
-  = Unit
 
 foreign import call_impl :: DBusConnection -> Nullable String -> String -> String -> String -> Nullable Variant -> Nullable VariantType -> DBusCallFlags -> Int -> Nullable Cancellable -> Nullable (AsyncResult -> Effect Unit) -> Effect Unit
 

@@ -8,11 +8,11 @@ import GLib.Variant (Variant)
 import Gio.DBusConnection (DBusConnection)
 import Gio.DBusProxyFlags (DBusProxyFlags)
 import Gio.BusType (BusType)
+import Gio.Cancellable (Cancellable)
 
 foreign import data DBusProxy :: Type
 
 -- TODO
-type Cancellable = Unit
 type DBusInterfaceInfo = Unit
 
 foreign import new_for_bus_sync_impl ::
