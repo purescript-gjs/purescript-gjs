@@ -15,3 +15,10 @@ foreign import unsafe_run_dispose :: forall obj. obj -> Effect Unit
 
 run_dispose :: forall obj. GObject obj => obj -> Effect Unit
 run_dispose = unsafe_run_dispose
+
+foreign import data HandlerID :: Type
+
+foreign import unsafe_disconnect :: forall object. object -> HandlerID -> Effect Unit
+
+disconnect :: forall object. GObject object => object -> HandlerID -> Effect Unit
+disconnect = unsafe_disconnect

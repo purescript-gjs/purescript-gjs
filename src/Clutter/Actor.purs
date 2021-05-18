@@ -5,6 +5,7 @@ import Effect (Effect)
 import Clutter.ButtonEvent (ButtonEvent)
 import Clutter.KeyEvent (KeyEvent)
 import Clutter.LayoutManager (class LayoutManager)
+import GObject (HandlerID)
 
 class Actor :: forall k. k -> Constraint
 class Actor a
@@ -46,24 +47,24 @@ hide = unsafe_hide
 
 type ButtonEventCallback = forall actor. Actor actor => actor -> ButtonEvent -> Effect Boolean
 
-foreign import unsafe_onButtonPressEvent :: forall actor cb. actor -> cb -> Effect Unit
+foreign import unsafe_onButtonPressEvent :: forall actor cb. actor -> cb -> Effect HandlerID
 
-onButtonPressEvent :: forall actor. Actor actor => actor -> (actor -> ButtonEvent -> Effect Boolean) -> Effect Unit
+onButtonPressEvent :: forall actor. Actor actor => actor -> (actor -> ButtonEvent -> Effect Boolean) -> Effect HandlerID
 onButtonPressEvent = unsafe_onButtonPressEvent
 
-foreign import unsafe_onButtonReleaseEvent :: forall actor cb. actor -> cb -> Effect Unit
+foreign import unsafe_onButtonReleaseEvent :: forall actor cb. actor -> cb -> Effect HandlerID
 
-onButtonReleaseEvent :: forall actor. Actor actor => actor -> (actor -> ButtonEvent -> Effect Boolean) -> Effect Unit
+onButtonReleaseEvent :: forall actor. Actor actor => actor -> (actor -> ButtonEvent -> Effect Boolean) -> Effect HandlerID
 onButtonReleaseEvent = unsafe_onButtonReleaseEvent
 
-foreign import unsafe_onKeyPressEvent :: forall actor cb. actor -> cb -> Effect Unit
+foreign import unsafe_onKeyPressEvent :: forall actor cb. actor -> cb -> Effect HandlerID
 
-onKeyPressEvent :: forall actor. Actor actor => actor -> (actor -> KeyEvent -> Effect Boolean) -> Effect Unit
+onKeyPressEvent :: forall actor. Actor actor => actor -> (actor -> KeyEvent -> Effect Boolean) -> Effect HandlerID
 onKeyPressEvent = unsafe_onKeyPressEvent
 
-foreign import unsafe_onKeyReleaseEvent :: forall actor cb. actor -> cb -> Effect Unit
+foreign import unsafe_onKeyReleaseEvent :: forall actor cb. actor -> cb -> Effect HandlerID
 
-onKeyReleaseEvent :: forall actor. Actor actor => actor -> (actor -> KeyEvent -> Effect Boolean) -> Effect Unit
+onKeyReleaseEvent :: forall actor. Actor actor => actor -> (actor -> KeyEvent -> Effect Boolean) -> Effect HandlerID
 onKeyReleaseEvent = unsafe_onKeyReleaseEvent
 
 foreign import unsafe_set_layout_manager :: forall actor lm. actor -> lm -> Effect Unit
