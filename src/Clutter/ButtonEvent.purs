@@ -2,7 +2,8 @@ module Clutter.ButtonEvent where
 
 import Prelude (Unit)
 import Effect (Effect)
+import Clutter.Event (class Event)
 
--- TODO
-type ButtonEvent
-  = Unit
+instance ev :: Event ButtonEvent
+
+foreign import data ButtonEvent :: Type

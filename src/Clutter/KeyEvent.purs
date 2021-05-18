@@ -2,9 +2,8 @@ module Clutter.KeyEvent where
 
 import Prelude (Unit)
 import Effect (Effect)
-import Clutter.EventType (EventType)
+import Clutter.Event (class Event)
 
-type KeyEvent
-  = { "type" :: EventType
-    , time :: Int
-    }
+instance ev :: Event KeyEvent
+
+foreign import data KeyEvent :: Type
