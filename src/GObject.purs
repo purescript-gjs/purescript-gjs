@@ -18,6 +18,12 @@ run_dispose = unsafe_run_dispose
 
 foreign import data HandlerID :: Type
 
+foreign import unsafe_connect :: forall object. object -> String -> Effect Unit -> Effect HandlerID
+
+connect :: forall object. GObject object => object -> String -> Effect Unit -> Effect HandlerID
+connect = unsafe_connect
+
+
 foreign import unsafe_disconnect :: forall object. object -> HandlerID -> Effect Unit
 
 disconnect :: forall object. GObject object => object -> HandlerID -> Effect Unit
