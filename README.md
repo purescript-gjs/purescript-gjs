@@ -8,6 +8,7 @@ Use this library to write GJS programs and extensions with purescript.
 Project using purescript-gjs:
 
 - [autochill][autochill], a gnome extension to help you chill by setting up breath time.
+- [gnome-mumble-push-to-talk][gnome-mumble-push-to-talk], a gnome extension to enable Mumble push to talk.
 
 # Contribute
 
@@ -136,3 +137,4 @@ Other usefull guides:
 
 [purescript]: https://www.purescript.org/
 [autochill]: https://github.com/TristanCacqueray/autochill
+[gnome-mumble-push-to-talk]: https://github.com/TristanCacqueray/gnome-mumble-push-to-talk
