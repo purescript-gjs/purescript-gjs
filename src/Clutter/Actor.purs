@@ -3,6 +3,7 @@ module Clutter.Actor where
 import Prelude (Unit)
 import Effect (Effect)
 import Clutter.ButtonEvent (ButtonEvent)
+import Clutter.KeyEvent (KeyEvent)
 import Clutter.LayoutManager (class LayoutManager)
 
 class Actor :: forall k. k -> Constraint
@@ -49,6 +50,21 @@ foreign import unsafe_onButtonPressEvent :: forall actor cb. actor -> cb -> Effe
 
 onButtonPressEvent :: forall actor. Actor actor => actor -> (actor -> ButtonEvent -> Effect Boolean) -> Effect Unit
 onButtonPressEvent = unsafe_onButtonPressEvent
+
+foreign import unsafe_onButtonReleaseEvent :: forall actor cb. actor -> cb -> Effect Unit
+
+onButtonReleaseEvent :: forall actor. Actor actor => actor -> (actor -> ButtonEvent -> Effect Boolean) -> Effect Unit
+onButtonReleaseEvent = unsafe_onButtonReleaseEvent
+
+foreign import unsafe_onKeyPressEvent :: forall actor cb. actor -> cb -> Effect Unit
+
+onKeyPressEvent :: forall actor. Actor actor => actor -> (actor -> KeyEvent -> Effect Boolean) -> Effect Unit
+onKeyPressEvent = unsafe_onKeyPressEvent
+
+foreign import unsafe_onKeyReleaseEvent :: forall actor cb. actor -> cb -> Effect Unit
+
+onKeyReleaseEvent :: forall actor. Actor actor => actor -> (actor -> KeyEvent -> Effect Boolean) -> Effect Unit
+onKeyReleaseEvent = unsafe_onKeyReleaseEvent
 
 foreign import unsafe_set_layout_manager :: forall actor lm. actor -> lm -> Effect Unit
 

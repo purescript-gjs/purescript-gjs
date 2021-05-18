@@ -9,4 +9,10 @@ exports.unsafe_show = actor => () => actor.show()
 exports.unsafe_hide = actor => () => actor.hide()
 exports.unsafe_onButtonPressEvent = actor => cb => () =>
   actor.connect("button-press-event", (actor, event) => cb(actor)(event)())
+exports.unsafe_onButtonReleaseEvent = actor => cb => () =>
+  actor.connect("button-release-event", (actor, event) => cb(actor)(event)())
+exports.unsafe_onKeyPressEvent = actor => cb => () =>
+  actor.connect("key-press-event", (actor, event) => cb(actor)(event)())
+exports.unsafe_onKeyReleaseEvent = actor => cb => () =>
+  actor.connect("key-release-event", (actor, event) => cb(actor)(event)())
 exports.unsafe_set_layout_manager = actor => lm => () => actor.set_layout_manager(lm)
