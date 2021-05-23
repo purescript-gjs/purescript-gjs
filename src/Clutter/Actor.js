@@ -16,3 +16,5 @@ exports.unsafe_onKeyPressEvent = actor => cb => () =>
 exports.unsafe_onKeyReleaseEvent = actor => cb => () =>
   actor.connect("key-release-event", (actor, event) => cb(actor)(event)())
 exports.unsafe_set_layout_manager = actor => lm => () => actor.set_layout_manager(lm)
+exports.unsafe_set_y_align = actor => a => () => actor.set_y_align(a)
+exports.unsafe_set_x_align = actor => a => () => actor.set_x_align(a)

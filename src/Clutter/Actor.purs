@@ -5,6 +5,7 @@ import Effect (Effect)
 import Clutter.ButtonEvent (ButtonEvent)
 import Clutter.KeyEvent (KeyEvent)
 import Clutter.LayoutManager (class LayoutManager)
+import Clutter.ActorAlign (ActorAlign)
 import GObject (HandlerID)
 
 class Actor :: forall k. k -> Constraint
@@ -71,3 +72,13 @@ foreign import unsafe_set_layout_manager :: forall actor lm. actor -> lm -> Effe
 
 set_layout_manager :: forall actor lm. Actor actor => LayoutManager lm => actor -> lm -> Effect Unit
 set_layout_manager = unsafe_set_layout_manager
+
+foreign import unsafe_set_y_align :: forall actor. actor -> ActorAlign -> Effect Unit
+
+set_y_align :: forall actor. Actor actor => actor -> ActorAlign -> Effect Unit
+set_y_align = unsafe_set_y_align
+
+foreign import unsafe_set_x_align :: forall actor. actor -> ActorAlign -> Effect Unit
+
+set_x_align :: forall actor. Actor actor => actor -> ActorAlign -> Effect Unit
+set_x_align = unsafe_set_x_align
