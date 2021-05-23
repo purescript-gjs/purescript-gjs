@@ -1,7 +1,6 @@
 { name = "gjs"
 , dependencies =
-  [ "console"
-  , "effect"
+  [ "effect"
   , "exceptions"
   , "maybe"
   , "lists"
@@ -10,8 +9,11 @@
   , "psci-support"
   , "integers"
   , "nullable"
+  , "either"
+  , "prelude"
+  , "tuples"
   ]
 , packages =
-    https://github.com/purescript/package-sets/releases/download/psc-0.14.0-20210405/packages.dhall sha256:6686e4f0e4a95bdea867ecb65123d838850ab8006033f1161cd5f1f26161dccd
+    https://github.com/purescript/package-sets/releases/download/psc-0.14.1-20210516/packages.dhall sha256:f5e978371d4cdc4b916add9011021509c8d869f4c3f6d0d2694c0e03a85046c8
 , sources = [ "src/**/*.purs", "test/**/*.purs" ]
 }
