@@ -11,9 +11,53 @@ Project using purescript-gjs:
 - [autochill][autochill], a gnome extension to help you chill by setting up breath time.
 - [gnome-mumble-push-to-talk][gnome-mumble-push-to-talk], a gnome extension to enable Mumble push to talk.
 
+# Usage
+
+Checkout the examples in the [./test/](./test/) directory.
+
+## Gio.Async
+
+The library provides high level functions using the `Aff` type to escape callback hell.
+For example, to read a file, a raw gio usage looks like this:
+
+```purescript
+import Gio.Raw.File as File
+import GJS (log)
+
+printFile :: String -> Effect Unit
+printFile path = do
+  file <- File.new_for_path path
+  File.load_contents_async file Nothing $ \obj res -> do
+    content <- File.load_contents_finish obj res
+    log content
+```
+
+Instead, the higher level `Gio.File` module provides a convenient `readFile` function:
+
+```purescript
+import Gio.File as File
+
+printFile :: String -> Effect Unit
+printFile path = launchAff_ $ do
+  content <- File.readFile path
+  liftEffect $ log content
+```
+
+> The GJS does not provides a native `setTimeout` function which is required by `Aff` to handle errors.
+> Use the `Gio.Async.init` function to install compatibility functions.
+
+This blog post is a good read to learn more about `Aff`: [Asynchronous PureScript](https://blog.drewolson.org/asynchronous-purescript).
+
+Checkout the [Test.Gio](./test/Gio.purs) example for a parallel async demo.
+
 # Contribute
 
 Contributions are most welcome.
+
+The project needs help to complete the APIs bindings:
+
+- add missing binding manually, or checkout the work in progress [codgen](./codegen/).
+- add higher level functions (e.g. in `Gio.File` or `Gio.Subprocess`) by following existing conventions (such as [Data.Text.IO][data-text-io] or [SimpleCmd][simplecmd]).
 
 You will need a [PureScript][purescript] toolchain and the gnome developper tool.
 
@@ -24,7 +68,7 @@ $ make test
 $ make test-gtk4
 ```
 
-Add binding by hand, or checkout the work in progress [codgen](./codegen/)
+If you experience any difficulties, please don't hesistate to raise an issue.
 
 # References
 
@@ -113,3 +157,5 @@ Clutter is an free and open source software library for creating portable, dynam
 [purescript-gnome-shell]: https://github.com/purescript-gjs/purescript-gnome-shell
 [autochill]: https://github.com/TristanCacqueray/autochill
 [gnome-mumble-push-to-talk]: https://github.com/TristanCacqueray/gnome-mumble-push-to-talk
+[data-text-io]: http://hackage.haskell.org/package/text-1.2.4.1/docs/Data-Text-IO.html
+[simplecmd]: http://hackage.haskell.org/package/simple-cmd-0.2.3/docs/SimpleCmd.html
