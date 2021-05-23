@@ -1,10 +1,12 @@
 { name = "gjs"
 , dependencies =
   [ "effect"
+  , "aff"
   , "exceptions"
   , "maybe"
   , "lists"
   , "arrays"
+  , "arraybuffer-types"
   , "foldable-traversable"
   , "psci-support"
   , "integers"

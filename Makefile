@@ -11,6 +11,9 @@ test-gtk:
 test-dbus:
 	spago bundle-app -m Test.DBus --to build/test-dbus.js --then "gjs build/test-dbus.js"
 
+test-gio:
+	spago bundle-app -m Test.Gio --to build/test-gio.js --then "gjs build/test-gio.js"
+
 .PHONY: codegen
 codegen:
 	pushd codegen; cabal run -O0
