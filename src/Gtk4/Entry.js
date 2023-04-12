@@ -2,6 +2,6 @@
 
 const Gtk4 = imports.gi.Gtk;
 
-exports.new = () => Gtk4.Entry.new()
+export const new_ = () => Gtk4.Entry.new()
 
-exports.get_buffer = (entry) => () => entry.get_buffer()
+export const get_buffer = (entry) => () => entry.get_buffer()

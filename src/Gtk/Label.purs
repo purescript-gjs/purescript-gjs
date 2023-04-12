@@ -9,6 +9,9 @@ instance label :: Widget Label
 
 foreign import data Label :: Type
 
-foreign import new :: Effect Label
+foreign import new_ :: Effect Label
+
+new :: Effect Label
+new = new_
 
 foreign import set_label :: Label -> String -> Effect Unit

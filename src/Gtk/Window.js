@@ -2,10 +2,10 @@
 
 const Gtk = imports.gi.Gtk;
 
-exports.new = ()  => new Gtk.Window()
+export const new_ = ()  => new Gtk.Window()
 
-exports.connectDelete = win => cb => () => win.connect("delete-event", cb)
+export const connectDelete = win => cb => () => win.connect("delete-event", cb)
 
-exports.show_all = win => () => win.show_all()
+export const show_all = win => () => win.show_all()
 
-exports.unsafe_add = win => widget => () => win.add(widget)
+export const unsafe_add = win => widget => () => win.add(widget)

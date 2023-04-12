@@ -2,4 +2,4 @@
 
 const Gio = imports.gi.Gio;
 
-exports.new = name => () => Gio.ThemedIcon.new(name)
+export const new_ = name => () => Gio.ThemedIcon.new(name)

@@ -8,7 +8,7 @@ import Effect.Aff (Aff, makeAff)
 import Data.Either (Either(..))
 import Effect.Exception (error)
 
-import Gio.Raw.File as File
+import Gio.Raw.File (File, contentsToString, load_contents_async, load_contents_async_impl, load_contents_finish, load_contents_finish_impl, new_for_path) as File
 
 readFile :: String -> Aff String
 readFile path = makeAff runEffect

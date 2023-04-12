@@ -11,9 +11,12 @@ instance widget :: Widget Box
 
 foreign import data Box :: Type
 
-foreign import new :: Orientation -> Number -> Effect Box
+foreign import new_ :: Orientation -> Number -> Effect Box
 
 foreign import unsafe_append :: forall widget. Box -> widget -> Effect Unit
 
 append :: forall widget. Widget widget => Box -> widget -> Effect Unit
 append = unsafe_append
+
+new :: Orientation -> Number -> Effect Box
+new = new_

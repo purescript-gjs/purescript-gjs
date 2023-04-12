@@ -2,4 +2,4 @@
 
 const DBusSignalFlags = imports.gi.Gio.DBusSignalFlags;
 
-exports.none = DBusSignalFlags.NONE
+export const none = DBusSignalFlags.NONE

@@ -2,7 +2,7 @@
 
 const ActorAlign = imports.gi.Clutter.ActorAlign;
 
-exports.fill = ActorAlign.FILL;
-exports.start = ActorAlign.START;
-exports.center = ActorAlign.CENTER;
-exports.end = ActorAlign.END;
+export const fill = ActorAlign.FILL;
+export const start = ActorAlign.START;
+export const center = ActorAlign.CENTER;
+export const end = ActorAlign.END;

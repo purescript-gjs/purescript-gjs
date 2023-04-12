@@ -13,10 +13,13 @@ instance window :: WindowClass Dialog
 
 foreign import data Dialog :: Type
 
-foreign import new :: Effect Dialog
+foreign import new_ :: Effect Dialog
 
 foreign import get_content_area :: Dialog -> Effect Box
 
 foreign import add_button :: Dialog -> String -> Int -> Effect Unit
 
 foreign import onResponse :: Dialog -> (Int -> Effect Unit) -> Effect Unit
+
+new :: Effect Dialog
+new = new_

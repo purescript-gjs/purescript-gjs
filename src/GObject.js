@@ -2,11 +2,11 @@
 
 const GObject = imports.gi.GObject;
 
-exports.unsafe_signal_connect_closure = obj => name => cb => () =>
+export const unsafe_signal_connect_closure = obj => name => cb => () =>
   GObject.signal_connect_closure(obj, name, cb, true)
 
-exports.unsafe_run_dispose = obj => () => obj.run_dispose()
+export const unsafe_run_dispose = obj => () => obj.run_dispose()
 
-exports.unsafe_connect = obj => signal => cb => () => obj.connect(signal, cb)
+export const unsafe_connect = obj => signal => cb => () => obj.connect(signal, cb)
 
-exports.unsafe_disconnect = obj => handlerId => () => obj.disconnect(handlerId)
+export const unsafe_disconnect = obj => handlerId => () => obj.disconnect(handlerId)

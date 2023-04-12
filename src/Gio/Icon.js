@@ -2,4 +2,4 @@
 
 const Gio = imports.gi.Gio;
 
-exports.new_for_string = name => () => Gio.Icon.new_for_string(name)
+export const new_for_string = name => () => Gio.Icon.new_for_string(name)

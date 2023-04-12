@@ -2,4 +2,4 @@
 
 const DBusProxyFlags = imports.gi.Gio.DBusProxyFlags;
 
-exports.none = DBusProxyFlags.NONE
+export const none = DBusProxyFlags.NONE

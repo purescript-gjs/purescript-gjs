@@ -2,7 +2,7 @@
 
 const Gtk = imports.gi.Gtk;
 
-exports.new = ()  => new Gtk.DrawingArea()
+export const new_ = ()  => new Gtk.DrawingArea()
 
-exports.connectDraw = widget => cb => () =>
+export const connectDraw = widget => cb => () =>
   widget.connect("draw", (_, cr) => cb(cr)())

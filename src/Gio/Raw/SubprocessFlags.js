@@ -2,6 +2,6 @@
 
 const SubprocessFlags = imports.gi.Gio.SubprocessFlags;
 
-exports.none = SubprocessFlags.NONE
-exports.stdin_pipe = SubprocessFlags.STDIN_PIPE
-exports.stdout_pipe = SubprocessFlags.STDOUT_PIPE
+export const none = SubprocessFlags.NONE
+export const stdin_pipe = SubprocessFlags.STDIN_PIPE
+export const stdout_pipe = SubprocessFlags.STDOUT_PIPE

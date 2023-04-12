@@ -2,4 +2,4 @@
 
 const DBusCallFlags = imports.gi.Gio.DBusCallFlags;
 
-exports.none = DBusCallFlags.NONE
+export const none = DBusCallFlags.NONE

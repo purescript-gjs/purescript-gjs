@@ -9,13 +9,15 @@ import Data.Nullable (Nullable, toNullable)
 import GObject (class GObject)
 import Gio.AsyncResult (AsyncResult)
 import Data.Tuple.Nested (Tuple3, tuple3)
-import Data.ArrayBuffer.Types (Uint8Array)
 import Gio.Raw.SubprocessFlags
 
 foreign import data Subprocess :: Type
 instance obj :: GObject Subprocess
 
-foreign import new :: Array String -> SubprocessFlags -> Effect Subprocess
+foreign import new_ :: Array String -> SubprocessFlags -> Effect Subprocess
+
+new :: Array String -> SubprocessFlags -> Effect Subprocess
+new = new_
 
 foreign import communicate_utf8_async_impl ::
   Subprocess -> Nullable String -> Nullable Cancellable -> AsyncReadyCallback Subprocess -> Effect Unit

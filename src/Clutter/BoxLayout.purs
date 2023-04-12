@@ -11,5 +11,8 @@ foreign import data BoxLayout :: Type
 instance obj :: GObject BoxLayout
 instance lm :: LayoutManager BoxLayout
 
-foreign import new :: Effect BoxLayout
+foreign import new_ :: Effect BoxLayout
 foreign import set_orientation :: BoxLayout -> Orientation -> Effect Unit
+
+new :: Effect BoxLayout
+new = new_

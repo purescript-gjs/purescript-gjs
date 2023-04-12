@@ -2,4 +2,4 @@
 
 const System = imports.system
 
-exports.programInvocationName = System.programInvocationName
+export const programInvocationName = System.programInvocationName

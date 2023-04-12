@@ -2,5 +2,5 @@
 
 const Gio = imports.gi.Gio;
 
-exports.new = () => Gio.Cancellable.new()
-exports.cancel = cancellable => () => cancellable.cancel()
+export const new_ = () => Gio.Cancellable.new()
+export const cancel = cancellable => () => cancellable.cancel()

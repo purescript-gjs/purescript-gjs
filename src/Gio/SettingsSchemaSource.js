@@ -2,11 +2,11 @@
 
 const Gio = imports.gi.Gio;
 
-exports.new_from_directory = path => trusted => () => Gio.SettingsSchemaSource.new_from_directory(path, null, trusted)
+export const new_from_directory = path => trusted => () => Gio.SettingsSchemaSource.new_from_directory(path, null, trusted)
 
-exports.lookup = s => name => recursive => () => s.lookup(name, recursive)
+export const lookup = s => name => recursive => () => s.lookup(name, recursive)
 
-exports.get_defaultImpl = just => nothing => () => {
+export const get_defaultImpl = just => nothing => () => {
     const res = Gio.SettingsSchemaSource.get_default();
     if (res) {
         return just(res);
@@ -15,7 +15,7 @@ exports.get_defaultImpl = just => nothing => () => {
     }
 }
 
-exports.list_schemasImpl = tuple => s => recurse => () => {
+export const list_schemasImpl = tuple => s => recurse => () => {
     const schemas = s.list_schemas(true);
     return tuple(schemas[0])(schemas[1])
 };

@@ -8,7 +8,7 @@ import Effect.Aff (Aff, makeAff)
 import Data.Either (Either(..))
 import Effect.Exception (error)
 
-import Gio.Raw.Subprocess as Subprocess
+import Gio.Raw.Subprocess (Subprocess, communicate_utf8_async, communicate_utf8_async_impl, communicate_utf8_finish, communicate_utf8_finish_impl, new) as Subprocess
 import Gio.Raw.SubprocessFlags as SubprocessFlags
 
 -- | 'cmd' runs a command and returns stdout

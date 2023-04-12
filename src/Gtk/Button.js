@@ -2,8 +2,8 @@
 
 const Gtk = imports.gi.Gtk;
 
-exports.new = ()  => new Gtk.Button()
+export const new_ = ()  => new Gtk.Button()
 
-exports.set_label = button => label => () => button.set_label(label)
+export const set_label = button => label => () => button.set_label(label)
 
-exports.connectClicked = button => cb => () => button.connect("clicked", cb)
+export const connectClicked = button => cb => () => button.connect("clicked", cb)

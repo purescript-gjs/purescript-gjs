@@ -4,7 +4,6 @@ import Prelude
 
 import Cairo as Cairo
 import Data.List as L
-import Data.Tuple (Tuple(..))
 import Data.Traversable (traverse_)
 import Effect (Effect)
 import GJS as GJS
@@ -31,7 +30,6 @@ onDraw cr = do
     segment x =
       let xn = x / 10.0
           yn = xn * xn
-          y = yn * 200.0
        in Cairo.lineTo cr x yn
 
 main :: Effect Unit

@@ -9,6 +9,9 @@ instance widget :: Widget Button
 
 foreign import data Button :: Type
 
-foreign import new :: Effect Button
+foreign import new_ :: Effect Button
 
 foreign import new_with_label :: String -> Effect Button
+
+new :: Effect Button
+new = new_

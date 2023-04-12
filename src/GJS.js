@@ -1,7 +1,7 @@
 "use strict";
 
-exports.argv = ARGV
-exports.log = msg => () => log(msg)
-exports.print = msg => () => print(msg)
-exports.printerr = msg => () => printerr(msg)
-exports.logError = e => msg => () => logError(e, msg)
+export const argv = ARGV
+export const log = msg => () => log(msg)
+export const print = msg => () => print(msg)
+export const printerr = msg => () => printerr(msg)
+export const logError = e => msg => () => logError(e, msg)

@@ -11,6 +11,9 @@ instance widget :: Widget DrawingArea
 
 foreign import data DrawingArea :: Type
 
-foreign import new :: Effect DrawingArea
+foreign import new_ :: Effect DrawingArea
 
 foreign import set_draw_func :: DrawingArea -> (Cairo.Context -> Effect Unit) -> Effect Unit
+
+new :: Effect DrawingArea
+new = new_

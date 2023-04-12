@@ -2,6 +2,6 @@
 
 const Gtk = imports.gi.Gtk;
 
-exports.new = ()  => new Gtk.Label()
+export const new_ = ()  => new Gtk.Label()
 
-exports.set_label = button => label => () => button.set_label(label)
+export const set_label = button => label => () => button.set_label(label)

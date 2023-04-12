@@ -14,7 +14,10 @@ class WindowClass a
 
 foreign import data Window :: Type
 
-foreign import new :: Effect Window
+foreign import new_ :: Effect Window
+
+new :: Effect Window
+new = new_
 
 foreign import unsafe_set_title :: forall window. window -> String -> Effect Unit
 

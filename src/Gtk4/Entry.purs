@@ -10,6 +10,9 @@ instance widget :: Widget Entry
 
 foreign import data Entry :: Type
 
-foreign import new :: Effect Entry
+foreign import new_ :: Effect Entry
 
 foreign import get_buffer :: Entry -> Effect EntryBuffer
+
+new :: Effect Entry
+new = new_

@@ -10,7 +10,10 @@ instance obj :: GObject Settings
 
 foreign import data Settings :: Type
 
-foreign import new :: String -> Effect Settings
+foreign import new_ :: String -> Effect Settings
+
+new :: String -> Effect Settings
+new = new_
 
 foreign import new_full :: SettingsSchema -> Effect Settings
 

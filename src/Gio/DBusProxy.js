@@ -2,12 +2,12 @@
 
 const DBusProxy = imports.gi.Gio.DBusProxy;
 
-exports.new_for_bus_sync_impl = bt => flags => i => name => object => iname => cancellable => () =>
+export const new_for_bus_sync_impl = bt => flags => i => name => object => iname => cancellable => () =>
   DBusProxy.new_for_bus_sync(bt, flags, i, name, object, iname, cancellable)
 
-exports.get_connection = proxy => () => proxy.get_connection()
+export const get_connection = proxy => () => proxy.get_connection()
 
-exports.debugConnect = proxy => cb => () => {
+export const debugConnect = proxy => cb => () => {
   proxy.connect('g-properties-changed', (_proxy, changed, _invalidated) =>
     Object.entries(changed.deep_unpack()).map((x) => {
       print(`prop [${x[0]}] ${x[1]}`)

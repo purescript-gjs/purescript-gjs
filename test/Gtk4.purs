@@ -49,8 +49,6 @@ onDraw cr = do
       xn = x / 10.0
 
       yn = xn * xn
-
-      y = yn * 200.0
     in
       Cairo.lineTo cr x yn
 

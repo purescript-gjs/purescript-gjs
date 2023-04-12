@@ -8,7 +8,10 @@ instance button :: Widget Box
 
 foreign import data Box :: Type
 
-foreign import new :: Effect Box
+foreign import new_ :: Effect Box
+
+new :: Effect Box
+new = new_
 
 -- |  pack_start(child, expand, fill, padding)
 foreign import unsafe_pack_start :: forall widget. Box -> widget -> Boolean -> Boolean -> Int -> Effect Unit

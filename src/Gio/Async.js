@@ -3,7 +3,7 @@
 // Copied from https://gist.github.com/andyholmes/582c29facbdbe67048c831a6370173eb
 const GLib = imports.gi.GLib;
 
-exports.init = () => {
+export const init = () => {
   window.setInterval = function (func, delay, ...args) {
     return GLib.timeout_add(GLib.PRIORITY_DEFAULT, delay, () => {
       func(...args);
