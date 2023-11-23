@@ -1,7 +1,6 @@
 "use strict";
 
-imports.gi.versions.Gtk = "4.0";
-const Gtk4 = imports.gi.Gtk;
+import Gtk4 from 'gi://Gtk?version=4.0';
 
 export const init = () => Gtk4.init(null)
 

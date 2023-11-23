@@ -1,6 +1,7 @@
 "use strict"
 
-export const none = imports.gi.Meta.KeyBindingFlags.NONE
-export const per_window = imports.gi.Meta.KeyBindingFlags.PER_WINDOW
-export const builtin = imports.gi.Meta.KeyBindingFlags.BUILTIN
-export const ignore_autorepeat = imports.gi.Meta.KeyBindingFlags.IGNORE_AUTOREPEAT
+import Meta from 'gi://Meta';
+export const none = Meta.KeyBindingFlags.NONE
+export const per_window = Meta.KeyBindingFlags.PER_WINDOW
+export const builtin = Meta.KeyBindingFlags.BUILTIN
+export const ignore_autorepeat = Meta.KeyBindingFlags.IGNORE_AUTOREPEAT

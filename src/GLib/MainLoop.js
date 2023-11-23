@@ -1,6 +1,6 @@
 "use strict";
 
-const GLib = imports.gi.GLib
+import GLib from 'gi://GLib';
 
 export const new_ = () => GLib.MainLoop.new(null, false)
 export const run = (loop) => () => loop.run()

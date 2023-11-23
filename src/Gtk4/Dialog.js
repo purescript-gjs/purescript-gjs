@@ -1,7 +1,7 @@
 "use strict";
 
-const Gtk4 = imports.gi.Gtk;
-const GObject = imports.gi.GObject;
+import Gtk4 from 'gi://Gtk?version=4.0';
+import GObject from 'gi://GObject';
 
 export const new_ = () => Gtk4.Dialog.new()
 

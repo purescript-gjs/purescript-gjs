@@ -1,7 +1,8 @@
 "use strict";
 
-const DBus = imports.gi.Gio.DBus;
-const DBusConnection = imports.gi.Gio.DBusConnection;
+import Gio from 'gi://Gio';
+const DBus = Gio.DBus;
+const DBusConnection = Gio.DBusConnection;
 
 export const session = DBus.session
 export const system = DBus.system

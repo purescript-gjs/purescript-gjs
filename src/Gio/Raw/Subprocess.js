@@ -1,6 +1,7 @@
 "use strict";
 
-const Subprocess = imports.gi.Gio.Subprocess;
+import Gio from 'gi://Gio';
+const Subprocess = Gio.Subprocess;
 
 export const new_ = argv => flags => () => Subprocess.new(argv, flags)
 

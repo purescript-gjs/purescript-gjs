@@ -1,7 +1,7 @@
 "use strict";
 
 // Copied from https://gist.github.com/andyholmes/582c29facbdbe67048c831a6370173eb
-const GLib = imports.gi.GLib;
+import GLib from 'gi://GLib';
 
 export const init = () => {
   window.setInterval = function (func, delay, ...args) {

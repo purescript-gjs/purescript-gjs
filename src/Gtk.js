@@ -1,7 +1,6 @@
 "use strict";
 
-imports.gi.versions.Gtk = "3.0";
-const Gtk = imports.gi.Gtk;
+import Gtk from 'gi://Gtk?version=3.0';
 
 export const init = () => Gtk.init(null)
 export const main = () => Gtk.main()

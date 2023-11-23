@@ -1,6 +1,6 @@
 "use strict";
 
-const GObject = imports.gi.GObject;
+import GObject from 'gi://GObject';
 
 export const unsafe_signal_connect_closure = obj => name => cb => () =>
   GObject.signal_connect_closure(obj, name, cb, true)

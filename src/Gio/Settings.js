@@ -1,6 +1,6 @@
 "use strict";
 
-const Gio = imports.gi.Gio;
+import Gio from 'gi://Gio';
 
 export const new_ = name => () => Gio.Settings.new(name);
 export const new_full = schema => () => Gio.Settings.new_full(schema, null, null)

@@ -1,6 +1,7 @@
 "use strict";
 
-const DBusProxy = imports.gi.Gio.DBusProxy;
+import Gio from 'gi://Gio';
+const DBusProxy = Gio.DBusProxy;
 
 export const new_for_bus_sync_impl = bt => flags => i => name => object => iname => cancellable => () =>
   DBusProxy.new_for_bus_sync(bt, flags, i, name, object, iname, cancellable)

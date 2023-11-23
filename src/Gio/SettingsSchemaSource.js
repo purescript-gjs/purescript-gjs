@@ -1,6 +1,6 @@
 "use strict";
 
-const Gio = imports.gi.Gio;
+import Gio from 'gi://Gio';
 
 export const new_from_directory = path => trusted => () => Gio.SettingsSchemaSource.new_from_directory(path, null, trusted)
 

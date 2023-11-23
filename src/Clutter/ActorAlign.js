@@ -1,6 +1,8 @@
 "use strict";
 
-const ActorAlign = imports.gi.Clutter.ActorAlign;
+import Clutter from 'gi://Clutter';
+
+const ActorAlign = Clutter.ActorAlign;
 
 export const fill = ActorAlign.FILL;
 export const start = ActorAlign.START;

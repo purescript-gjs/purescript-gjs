@@ -1,5 +1,6 @@
 "use strict";
 
-const DBusSignalFlags = imports.gi.Gio.DBusSignalFlags;
+import Gio from 'gi://Gio';
+const DBusSignalFlags = Gio.DBusSignalFlags;
 
 export const none = DBusSignalFlags.NONE

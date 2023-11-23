@@ -1,6 +1,7 @@
 "use strict";
 
-const BusType = imports.gi.Gio.BusType;
+import Gio from 'gi://Gio';
+const BusType = Gio.BusType;
 
 export const system = BusType.SYSTEM
 export const session = BusType.SESSION

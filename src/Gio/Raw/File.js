@@ -1,6 +1,8 @@
 "use strict";
 
-const File = imports.gi.Gio.File;
+import Gio from 'gi://Gio';
+const File = Gio.File;
+
 const ByteArray = imports.byteArray;
 
 export const new_for_path = path => () => File.new_for_path(path);

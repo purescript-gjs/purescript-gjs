@@ -1,5 +1,6 @@
 "use strict";
 
-const DBusProxyFlags = imports.gi.Gio.DBusProxyFlags;
+import Gio from 'gi://Gio';
+const DBusProxyFlags = Gio.DBusProxyFlags;
 
 export const none = DBusProxyFlags.NONE

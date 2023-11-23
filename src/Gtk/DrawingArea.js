@@ -1,6 +1,6 @@
 "use strict";
 
-const Gtk = imports.gi.Gtk;
+import Gtk from 'gi://Gtk?version=3.0';
 
 export const new_ = ()  => new Gtk.DrawingArea()
 
