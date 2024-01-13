@@ -1,0 +1,26 @@
+package:
+  name: gjs
+  dependencies:
+    - aff
+    - arraybuffer-types
+    - arrays
+    - effect
+    - either
+    - exceptions
+    - foldable-traversable
+    - integers
+    - lists
+    - maybe
+    - nullable
+    - parallel
+    - prelude
+    - tuples
+  bundle:
+    type: module
+    extra_args:
+      - "--external:gi://*"
+      - "--external:resource://*"
+workspace:
+  package_set:
+    registry: 48.0.0
+  extra_packages: {}
