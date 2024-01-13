@@ -1,7 +1,7 @@
 "use strict";
 
 import Gtk4 from 'gi://Gtk?version=4.0';
-s
+
 export const new_ = () => Gtk4.Window.new()
 
 export const unsafe_set_title = (win) => title => () => win.set_title(title)
