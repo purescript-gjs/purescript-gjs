@@ -1,7 +1,6 @@
 "use strict";
 
 export const argv = ARGV
-export const log = msg => () => log(msg)
-export const print = msg => () => print(msg)
-export const printerr = msg => () => printerr(msg)
-export const logError = e => msg => () => logError(e, msg)
+export const log = msg => () => console.log(msg)
+export const trace = msg => () => console.trace(msg)
+export const warn = msg => () => console.warn(msg)
