@@ -37,8 +37,8 @@ Instead, the higher level `Gio.File` module provides a convenient `readFile` fun
 ```purescript
 import Gio.File as File
 
-printFile :: String -> Effect Unit
-printFile path = launchAff_ $ do
+printFile :: String -> Aff Unit
+printFile path = do
   content <- File.readFile path
   liftEffect $ log content
 ```
@@ -46,9 +46,13 @@ printFile path = launchAff_ $ do
 > The GJS does not provides a native `setTimeout` function which is required by `Aff` to handle errors.
 > Use the `Gio.Async.init` function to install compatibility functions.
 
+
+
 This blog post is a good read to learn more about `Aff`: [Asynchronous PureScript](https://blog.drewolson.org/asynchronous-purescript).
 
-Checkout the [Test.Gio](./test/Gio.purs) example for a parallel async demo.
+For command line application, use `GLib.MainLoop.withLoop`, checkout the [Test.Gio](./test/Gio.purs) example for a parallel async demo.
+
+For graphical application, checkout the [Test.Gtk4](./test/Gtk4.purs) example for custom glib loop lifecycle.
 
 # Contribute
 
