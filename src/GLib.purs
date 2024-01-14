@@ -1,7 +1,9 @@
 module GLib where
 
-import Prelude (Unit)
+import Data.Maybe (Maybe)
+import Data.Nullable (Nullable, toMaybe)
 import Effect (Effect)
+import Prelude (Unit, (<$>))
 
 foreign import data EventSourceId :: Type
 
@@ -9,3 +11,8 @@ foreign import data EventSourceId :: Type
 foreign import timeoutAdd :: Int -> Effect Boolean -> Effect EventSourceId
 
 foreign import sourceRemove :: EventSourceId -> Effect Unit
+
+foreign import getenv_impl :: String -> Effect (Nullable String)
+
+getenv :: String -> Effect (Maybe String)
+getenv var = toMaybe <$> getenv_impl var

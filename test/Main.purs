@@ -6,6 +6,7 @@ import Data.Array (length)
 import Effect (Effect)
 import Effect.Exception (error)
 import GJS as GJS
+import GLib as GLib
 import GLib.DateTime (new_from_iso8601)
 import GLib.Variant as GLib
 import System as System
@@ -36,6 +37,8 @@ testArgv = do
   GJS.log $ "length: " <> show (length GJS.argv)
 
 testDate = do
+  home <- GLib.getenv "HOME"
+  GJS.log $ "home: " <> show home
   GJS.log $ "date: " <> show (new_from_iso8601 "20240101T10:10:10Z")
 
 main :: Effect Unit
