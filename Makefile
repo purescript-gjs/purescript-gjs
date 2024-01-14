@@ -1,7 +1,7 @@
 .PHONY: test
 test:
 	spago bundle --output build --module Test.Main --outfile build/test.js
-	gjs -c "import('./build/test.js').then(m => m.main())"
+	gjs -c "import('./build/test.js').then(m => m.main()).catch(e => console.trace(e))"
 
 test-gtk4:
 	spago bundle --output build --module Test.Gtk4 --outfile build/test-gtk4.js

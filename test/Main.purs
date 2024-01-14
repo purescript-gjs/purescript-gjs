@@ -5,9 +5,10 @@ import Prelude
 import Data.Array (length)
 import Effect (Effect)
 import Effect.Exception (error)
-import System as System
 import GJS as GJS
+import GLib.DateTime (new_from_iso8601)
 import GLib.Variant as GLib
+import System as System
 
 assertEqual' :: forall a. Eq a => Show a => String -> { actual :: a, expected :: a } -> Effect Unit
 assertEqual' msg { actual, expected } =
@@ -34,8 +35,12 @@ testArgv = do
   GJS.log $ "argv: " <> show GJS.argv
   GJS.log $ "length: " <> show (length GJS.argv)
 
+testDate = do
+  GJS.log $ "date: " <> show (new_from_iso8601 "20240101T10:10:10Z")
+
 main :: Effect Unit
 main = do
+  testDate
   testGLibVariant
   testGJS
   testArgv
