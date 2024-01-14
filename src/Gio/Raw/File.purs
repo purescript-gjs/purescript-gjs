@@ -1,20 +1,29 @@
 module Gio.Raw.File where
 
-import Prelude (Unit)
-import Effect (Effect)
-import Data.Maybe (Maybe)
-import Gio.Cancellable (Cancellable)
-import Gio.AsyncReadyCallback (AsyncReadyCallback)
-import Data.Nullable (Nullable, toNullable)
-import GObject (class GObject)
-import Gio.AsyncResult (AsyncResult)
-import Data.Tuple.Nested (Tuple3, tuple3)
 import Data.ArrayBuffer.Types (Uint8Array)
+import Data.Either (Either)
+import Data.Maybe (Maybe)
+import Data.Nullable (Nullable, toNullable)
+import Data.Tuple.Nested (Tuple3, tuple3)
+import Effect (Effect)
+import Effect.Exception (Error, try)
+import GObject (class GObject)
+import Gio.AsyncReadyCallback (AsyncReadyCallback)
+import Gio.AsyncResult (AsyncResult)
+import Gio.Cancellable (Cancellable)
+import Prelude (Unit)
 
 foreign import data File :: Type
+
 instance obj :: GObject File
 
 foreign import new_for_path :: String -> Effect File
+
+-- TODO export const filepath = GLib.build_filenamev([GLib.get_home_dir(), 'test-file.txt']);
+foreign import load_contents_impl :: File -> Nullable Cancellable -> Effect String
+
+load_contents :: File -> Nullable Cancellable -> Effect (Either Error String)
+load_contents file cancel = try (load_contents_impl file cancel)
 
 foreign import load_contents_async_impl ::
   File -> Nullable Cancellable -> AsyncReadyCallback File -> Effect Unit

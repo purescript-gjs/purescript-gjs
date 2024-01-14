@@ -13,7 +13,9 @@ import Gio.File as File
 import Gio.Subprocess as Subprocess
 
 main :: Effect Unit
-main =
+main = do
+  GJS.log "[+] test started"
+  test_ <- File.readFileSync "/unknown"
   withLoop do
     results <-
       parSequence
@@ -27,3 +29,4 @@ main =
               GJS.log $ "content: " <> fileContent
               GJS.log $ "output: " <> procOutput
       _ -> pure mempty
+  GJS.log "[+] test completed"

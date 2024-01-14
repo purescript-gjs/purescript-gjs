@@ -7,6 +7,13 @@ const ByteArray = imports.byteArray;
 
 export const new_for_path = path => () => File.new_for_path(path);
 
+export const load_contents_impl = file => cancellable => () => {
+    let [ok, contents, etag_out] = file.load_contents(cancellable);
+    const decoder = new TextDecoder('utf-8');
+    const contentsString = decoder.decode(contents);
+    return contentsString;
+}
+
 export const load_contents_async_impl = file => cancellable => cb => () =>
   file.load_contents_async(cancellable, (obj, result) =>
       cb(obj)(result)()

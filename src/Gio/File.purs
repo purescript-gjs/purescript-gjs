@@ -1,14 +1,23 @@
-module Gio.File (module File, readFile) where
+module Gio.File (module File, readFile, readFileSync) where
 
 import Prelude
-import Effect.Class (liftEffect)
-import Data.Maybe (Maybe(..))
-import Data.Tuple.Nested ((/\))
-import Effect.Aff (Aff, makeAff)
-import Data.Either (Either(..))
-import Effect.Exception (error)
 
+import Data.Either (Either(..))
+import Data.Maybe (Maybe(..))
+import Data.Nullable (toNullable)
+import Data.Tuple.Nested ((/\))
+import Effect (Effect)
+import Effect.Aff (Aff, makeAff)
+import Effect.Class (liftEffect)
+import Effect.Exception (Error, error)
+import GJS as GJS
 import Gio.Raw.File (File, contentsToString, load_contents_async, load_contents_async_impl, load_contents_finish, load_contents_finish_impl, new_for_path) as File
+import Gio.Raw.File (load_contents)
+
+readFileSync :: String -> Effect (Either Error String)
+readFileSync path = do
+  file <- File.new_for_path path
+  load_contents file (toNullable Nothing)
 
 readFile :: String -> Aff String
 readFile path = makeAff runEffect
